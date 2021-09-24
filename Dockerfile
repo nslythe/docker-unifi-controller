@@ -1,8 +1,8 @@
-FROM base
+FROM ghcr.io/nslythe/docker-base:latest
 
 ARG UNIFI_VERSION=6.4.54
 
-RUN apt-get update && apt-get install -y openjdk-8-jre-headless jsvc mongodb-server curl logrotate
+RUN apt-get update && apt-get install -y openjdk-8-jre-headless jsvc mongodb-server curl logrotate libcap2
 
 ADD https://dl.ui.com/unifi/${UNIFI_VERSION}/unifi_sysvinit_all.deb /unifi.dep
 
