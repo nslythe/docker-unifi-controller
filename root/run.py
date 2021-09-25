@@ -2,6 +2,11 @@
 import os
 import subprocess
 import go
+import requests
+
+from requests.packages.urllib3.exceptions import InsecureRequestWarning
+
+requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 
 class Runner(go.BaseRunner):
     def __init__(self):
@@ -55,5 +60,10 @@ class Runner(go.BaseRunner):
         self.process.kill()
 
     def check(self):
-        return self.process.poll() is None
+        if self.process.poll() is not None:
+            return False
+        r = requests.get('https://127.0.0.1:8443', verify=False)
+        print (r.status_code)
+        return r.status_code == 200
+
 
