@@ -1,8 +1,9 @@
 
 import os
 import subprocess
+import go
 
-class Run(object):
+class Run(go.BaseRunner):
     def __init__(self):
         self.process = None
 
@@ -53,4 +54,6 @@ class Run(object):
     def stop(self):
         self.process.kill()
 
+    def check(self):
+        return self.process.poll() is None
 
