@@ -3,7 +3,7 @@ import os
 import subprocess
 import go
 
-class Run(go.BaseRunner):
+class Runner(go.BaseRunner):
     def __init__(self):
         self.process = None
 
