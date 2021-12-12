@@ -1,6 +1,6 @@
 FROM ghcr.io/nslythe/docker-base:latest
 
-ARG UNIFI_VERSION=6.4.54
+ARG UNIFI_VERSION=6.5.54
 
 RUN apt-get update && apt-get install -y openjdk-8-jre-headless jsvc mongodb-server curl logrotate libcap2
 
